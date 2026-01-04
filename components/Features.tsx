@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect } from 'react';
-import { motion, useMotionValue, useTransform, animate } from 'framer-motion';
+import { motion, useMotionValue, useTransform, animate, Variants } from 'framer-motion';
 import { Clock, Zap, User, Globe } from 'lucide-react';
 
 const Features: React.FC = () => {
@@ -40,7 +40,7 @@ const Features: React.FC = () => {
     },
   };
 
-  const listItemVariants = {
+  const listItemVariants: Variants = {
     hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
