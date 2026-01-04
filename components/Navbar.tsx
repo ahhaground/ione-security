@@ -1,8 +1,10 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Shield } from 'lucide-react';
-import { COMPANY_NAME, NAV_ITEMS } from '@/constants';
+import { Menu, X } from 'lucide-react';
+import { NAV_ITEMS } from '@/constants';
+
+// 경로 확인: public/img/logo.png 파일이 존재하는지 확인하세요 (대소문자 구분)
 
 export const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -17,21 +19,19 @@ export const Navbar: React.FC = () => {
   }, []);
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'py-4 glass-panel border-b border-white/10' : 'py-6 bg-transparent'}`}>
+    <nav className={`fixed top-0 left-0 right-0 z-[999] w-full transition-all duration-300 ${isScrolled ? 'py-4 glass-panel border-b border-white/10' : 'py-6 bg-transparent'}`}>
       <div className="container mx-auto px-6 flex items-center justify-between">
         <div className="flex items-center gap-2 group cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth'})}>
-          <div className="relative">
-            <Shield className="w-8 h-8 text-cyan-400 transition-transform group-hover:scale-110" />
-            <div className="absolute inset-0 bg-cyan-400 blur-lg opacity-20 group-hover:opacity-40 transition-opacity" />
-          </div>
-          <span className="text-xl font-bold tracking-wider text-white font-mono">
-            {COMPANY_NAME}
-          </span>
+          <img 
+            src="/img/logo.png" 
+            alt="아이원시큐리티" 
+            className="h-10 w-auto object-contain transition-transform group-hover:scale-105" 
+          />
         </div>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center space-x-8">
-          {NAV_ITEMS.map((item) => (
+          {NAV_ITEMS.filter(item => item.label !== 'Contact' && item.label !== 'CONTACT' && item.label !== '문의하기').map((item) => (
             <a 
               key={item.label} 
               href={item.href}
@@ -58,7 +58,7 @@ export const Navbar: React.FC = () => {
       {/* Mobile Menu Overlay */}
       {mobileMenuOpen && (
         <div className="absolute top-full left-0 right-0 glass-panel border-b border-white/10 md:hidden p-6 flex flex-col space-y-4 animate-fadeIn">
-          {NAV_ITEMS.map((item) => (
+          {NAV_ITEMS.filter(item => item.label !== 'Contact' && item.label !== 'CONTACT' && item.label !== '문의하기').map((item) => (
             <a 
               key={item.label} 
               href={item.href}

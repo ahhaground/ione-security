@@ -3,14 +3,18 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-export const Hero: React.FC = () => {
+const Hero: React.FC = () => {
   return (
     <section className="relative w-full h-screen overflow-hidden bg-slate-950 flex flex-col justify-center">
       {/* Background Grid */}
       <div className="absolute inset-0 bg-grid-pattern bg-[length:40px_40px] opacity-[0.05] pointer-events-none" />
       
       {/* 3D Spline Background Layer */}
-      <div className="absolute inset-0 z-0">
+      {/* 참고: Spline 모델에 마우스 오버(Hover) 효과가 필요하다면, 
+          pointer-events-none 대신 Spline 툴 설정(Export Settings)에서 
+          'Zoom'과 'Pan' 기능을 끄는 것을 권장합니다. 
+          하지만 현재는 위치 고정이 우선이므로 pointer-events-none을 적용합니다. */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
         <iframe 
           src='https://my.spline.design/techinspired3dassets01protection-pnePazPajlQ2jOGOzFYTvmkQ/' 
           frameBorder='0' 
@@ -78,3 +82,5 @@ export const Hero: React.FC = () => {
     </section>
   );
 };
+
+export default Hero;

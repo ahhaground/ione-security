@@ -4,7 +4,7 @@ import React, { useEffect } from 'react';
 import { motion, useMotionValue, useTransform, animate } from 'framer-motion';
 import { Clock, Zap, User, Globe } from 'lucide-react';
 
-export const Features: React.FC = () => {
+const Features: React.FC = () => {
   const count = useMotionValue(98.2);
   const rounded = useTransform(count, (latest) => `${latest.toFixed(1)}%`);
 
@@ -218,3 +218,5 @@ export const Features: React.FC = () => {
     </section>
   );
 };
+
+export default Features;

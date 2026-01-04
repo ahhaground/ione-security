@@ -6,7 +6,7 @@ export const SLOGAN = "데이터의 가치를 지키는 기업";
 
 export const NAV_ITEMS: NavItem[] = [
   { label: 'Services', href: '#services' },
-  { label: 'Technology', href: '#features' },
+  { label: 'FEATURES', href: '#features' },
   { label: 'About', href: '#about' },
   { label: 'Contact', href: '#contact' },
 ];

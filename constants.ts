@@ -8,7 +8,6 @@ export const NAV_ITEMS: NavItem[] = [
   { label: 'Services', href: '#services' },
   { label: 'FEATURES', href: '#features' },
   { label: 'About', href: '#about' },
-  { label: 'Contact', href: '#contact' },
 ];
 
 export const CONTACT_INFO: ContactInfo = {

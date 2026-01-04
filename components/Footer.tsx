@@ -1,61 +1,39 @@
-import React from 'react';
-import { COMPANY_NAME, SLOGAN } from '@/constants';
-import { Shield } from 'lucide-react';
+import Link from "next/link";
 
-export const Footer: React.FC = () => {
+export default function Footer() {
   return (
-    <footer className="bg-slate-950 border-t border-slate-900 py-12 text-sm">
+    <footer className="bg-slate-950 py-16 text-slate-400 text-sm border-t border-slate-900">
       <div className="container mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
-          <div className="col-span-1 md:col-span-1 space-y-4">
-            <div className="flex items-center gap-2 text-white">
-              <Shield className="w-6 h-6 text-cyan-500" />
-              <span className="font-bold text-lg tracking-wide">{COMPANY_NAME}</span>
+        
+        {/* 상단: 로고와 정보가 왼쪽으로 나란히 배치 */}
+        <div className="flex flex-col md:flex-row justify-start items-center gap-10 mb-10">
+          
+          {/* 1. 로고 */}
+          <Link href="/" className="shrink-0">
+            <img 
+              src="/img/logo.png" 
+              alt="아이원시큐리티" 
+              className="h-10 w-auto object-contain grayscale opacity-70"
+            />
+          </Link>
+
+          {/* 2. 회사 정보 (왼쪽 정렬, 폰트 크기 조정) */}
+          <div className="text-left space-y-1">
+            <p className="font-bold text-white text-[15px]">(주)아이원시큐리티</p>
+            <div className="text-[13px] leading-relaxed">
+              <p>사업자 등록번호: 338-88-01668 <span className="mx-2 text-slate-700">|</span> 대표: 서성원</p>
+              <p>04799 서울특별시 성동구 아차산로17길 48, 608호 (성수 SK V1 CENTER)</p>
             </div>
-            <p className="text-slate-500 leading-relaxed">
-              {SLOGAN}
-            </p>
           </div>
           
-          <div>
-            <h4 className="font-bold text-white mb-4">Platform</h4>
-            <ul className="space-y-2 text-slate-400">
-              <li><a href="#" className="hover:text-cyan-400 transition-colors">AI Analysis</a></li>
-              <li><a href="#" className="hover:text-cyan-400 transition-colors">Blockchain Security</a></li>
-              <li><a href="#" className="hover:text-cyan-400 transition-colors">Real-time Monitoring</a></li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="font-bold text-white mb-4">Company</h4>
-            <ul className="space-y-2 text-slate-400">
-              <li><a href="#" className="hover:text-cyan-400 transition-colors">About Us</a></li>
-              <li><a href="#" className="hover:text-cyan-400 transition-colors">Careers</a></li>
-              <li><a href="#" className="hover:text-cyan-400 transition-colors">Blog</a></li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="font-bold text-white mb-4">Legal</h4>
-            <ul className="space-y-2 text-slate-400">
-              <li><a href="#" className="hover:text-cyan-400 transition-colors">Privacy Policy</a></li>
-              <li><a href="#" className="hover:text-cyan-400 transition-colors">Terms of Service</a></li>
-            </ul>
-          </div>
         </div>
 
-        <div className="border-t border-slate-900 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-slate-600">
-            &copy; 2026 {COMPANY_NAME}. All rights reserved.
-          </p>
-          <div className="flex gap-4">
-            {/* Social icons placeholder */}
-            <div className="w-8 h-8 rounded bg-slate-900 border border-slate-800 hover:border-cyan-500 transition-colors cursor-pointer" />
-            <div className="w-8 h-8 rounded bg-slate-900 border border-slate-800 hover:border-cyan-500 transition-colors cursor-pointer" />
-            <div className="w-8 h-8 rounded bg-slate-900 border border-slate-800 hover:border-cyan-500 transition-colors cursor-pointer" />
-          </div>
+        {/* 하단: 저작권 (중앙 정렬) */}
+        <div className="border-t border-slate-800/50 pt-8 text-center text-[13px] text-slate-500">
+          <p>&copy; 2026 아이원시큐리티. All rights reserved.</p>
         </div>
+
       </div>
     </footer>
   );
-};
+}
