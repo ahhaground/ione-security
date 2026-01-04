@@ -31,7 +31,19 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary",
     title: "아이원 시큐리티",
-    descriptiounction RootLayout({
+    description: "데이터 보안은 아이원 시큐리티와 함께",
+    images: ["/img/logo.png"],
+  },
+  icons: {
+    icon: "/img/logo.png",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
+
+export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
