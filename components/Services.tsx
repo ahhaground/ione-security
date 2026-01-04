@@ -4,8 +4,16 @@ import React from 'react';
 import { motion, Variants  } from 'framer-motion';
 import { ArrowUpRight, Handshake, MonitorCheck, Lightbulb } from 'lucide-react';
 
+// ServiceItem 타입 정의 (icon은 복잡하니 any로 처리, badge는 ?를 붙여 선택사항으로)
+interface ServiceItem {
+  title: string;
+  description: string;
+  icon: any; 
+  badge?: string;
+}
+
 const Services: React.FC = () => {
-  const services = [
+  const services: ServiceItem[] = [
     {
       title: "AhnLab PARTNER",
       description: "깊은 신뢰가 바탕이 된 관계와 높은 제품 이해도로 차별화된 기술을 제공해요",
