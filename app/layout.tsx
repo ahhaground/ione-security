@@ -5,9 +5,11 @@ import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const inter = Inter({ 
   subsets: ["latin"],
-  display: 'swap', // Font optimization for better CLS
+  display: 'swap', // Font optimization for better CLS - shows fallback immediately
   preload: true,
   variable: '--font-inter',
+  fallback: ['system-ui', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+  adjustFontFallback: true, // Reduces CLS by matching fallback metrics
 });
 
 export const metadata: Metadata = {
@@ -56,6 +58,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
+      <head>
+        {/* Preconnect to external domains for faster resource loading */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://my.spline.design" />
+        <link rel="dns-prefetch" href="https://my.spline.design" />
+      </head>
       <body className={inter.className}>
         {children}
         <SpeedInsights />
