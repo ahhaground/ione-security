@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -9,11 +10,14 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-start items-center gap-10 mb-10">
           
           {/* 1. 로고 */}
-          <Link href="/" className="shrink-0">
-            <img 
+          <Link href="/" className="shrink-0 relative h-10 w-32">
+            <Image 
               src="/img/logo.png" 
               alt="아이원시큐리티" 
-              className="h-10 w-auto object-contain grayscale opacity-70"
+              fill
+              sizes="(max-width: 768px) 100px, 128px"
+              className="object-contain grayscale opacity-70"
+              loading="lazy"
             />
           </Link>
 

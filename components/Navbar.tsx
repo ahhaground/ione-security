@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { Menu, X } from 'lucide-react';
 import { NAV_ITEMS } from '@/constants';
 
@@ -21,11 +22,14 @@ export const Navbar: React.FC = () => {
   return (
     <nav className={`fixed top-0 left-0 right-0 z-[999] w-full transition-all duration-300 ${isScrolled ? 'py-4 glass-panel border-b border-white/10' : 'py-6 bg-transparent'}`}>
       <div className="container mx-auto px-6 flex items-center justify-between">
-        <div className="flex items-center gap-2 group cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth'})}>
-          <img 
+        <div className="flex items-center gap-2 group cursor-pointer relative h-10 w-32" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth'})}>
+          <Image 
             src="/img/logo.png" 
             alt="아이원시큐리티" 
-            className="h-10 w-auto object-contain transition-transform group-hover:scale-105" 
+            fill
+            priority
+            sizes="(max-width: 768px) 100px, 128px"
+            className="object-contain transition-transform group-hover:scale-105" 
           />
         </div>
 

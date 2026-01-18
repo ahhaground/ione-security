@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 // 이미지 경로: public/img/plogo/plogo_01.png ...
 const logos = Array.from({ length: 10 }, (_, i) => 
@@ -19,12 +20,19 @@ export default function Partners() {
           className="flex flex-shrink-0 gap-16 pr-16"
         >
           {logos.map((src, idx) => (
-            <img 
-              key={`a-${idx}`} 
-              src={src} 
-              alt="Partner Logo" 
-              className="h-12 w-auto object-contain grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300" 
-            />
+            <div
+              key={`a-${idx}`}
+              className="relative h-12 w-32 flex-shrink-0"
+            >
+              <Image 
+                src={src} 
+                alt={`Partner Logo ${idx + 1}`}
+                fill
+                sizes="128px"
+                className="object-contain grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+                loading="lazy"
+              />
+            </div>
           ))}
         </motion.div>
 
@@ -36,12 +44,19 @@ export default function Partners() {
           className="flex flex-shrink-0 gap-16 pr-16"
         >
           {logos.map((src, idx) => (
-            <img 
-              key={`b-${idx}`} 
-              src={src} 
-              alt="Partner Logo" 
-              className="h-12 w-auto object-contain grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300" 
-            />
+            <div
+              key={`b-${idx}`}
+              className="relative h-12 w-32 flex-shrink-0"
+            >
+              <Image 
+                src={src} 
+                alt={`Partner Logo ${idx + 1}`}
+                fill
+                sizes="128px"
+                className="object-contain grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+                loading="lazy"
+              />
+            </div>
           ))}
         </motion.div>
       </div>

@@ -20,6 +20,7 @@ const Hero: React.FC = () => {
           frameBorder='0' 
           width='100%' 
           height='100%'
+          loading="lazy"
           className="w-full h-full scale-100 md:scale-100 object-cover opacity-80"
           title="Spline 3D Model"
         />
